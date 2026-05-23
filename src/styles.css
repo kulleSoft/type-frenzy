@@ -132,13 +132,97 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
-@layer base {
-  * {
-    border-color: var(--color-border);
-  }
+:root {
+  --neon-pink: oklch(0.72 0.32 350);
+  --neon-cyan: oklch(0.85 0.18 200);
+  --neon-purple: oklch(0.65 0.30 305);
+  --neon-yellow: oklch(0.92 0.20 95);
+  --neon-green: oklch(0.85 0.25 145);
+  --bg-deep: oklch(0.10 0.04 280);
+  --bg-deeper: oklch(0.06 0.03 280);
+}
 
+@theme inline {
+  --color-neon-pink: var(--neon-pink);
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-yellow: var(--neon-yellow);
+  --color-neon-green: var(--neon-green);
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-deeper: var(--bg-deeper);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
   body {
-    background-color: var(--color-background);
+    background: radial-gradient(ellipse at top, var(--bg-deep), var(--bg-deeper));
     color: var(--color-foreground);
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
+
+@layer utilities {
+  .text-neon-pink { color: var(--neon-pink); }
+  .text-neon-cyan { color: var(--neon-cyan); }
+  .text-neon-purple { color: var(--neon-purple); }
+  .text-neon-yellow { color: var(--neon-yellow); }
+  .text-neon-green { color: var(--neon-green); }
+  .bg-neon-pink { background-color: var(--neon-pink); }
+  .bg-neon-cyan { background-color: var(--neon-cyan); }
+  .bg-neon-purple { background-color: var(--neon-purple); }
+  .bg-bg-deep { background-color: var(--bg-deep); }
+  .bg-bg-deeper { background-color: var(--bg-deeper); }
+  .border-neon-pink { border-color: var(--neon-pink); }
+  .border-neon-cyan { border-color: var(--neon-cyan); }
+  .border-neon-purple { border-color: var(--neon-purple); }
+  .glow-pink { box-shadow: 0 0 20px var(--neon-pink), 0 0 40px color-mix(in oklab, var(--neon-pink) 50%, transparent); }
+  .glow-cyan { box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px color-mix(in oklab, var(--neon-cyan) 50%, transparent); }
+  .glow-purple { box-shadow: 0 0 20px var(--neon-purple), 0 0 40px color-mix(in oklab, var(--neon-purple) 50%, transparent); }
+  .text-glow-pink { text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink); }
+  .text-glow-cyan { text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan); }
+  .text-glow-purple { text-shadow: 0 0 10px var(--neon-purple), 0 0 30px var(--neon-purple); }
+  .grid-bg {
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--neon-purple) 15%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--neon-cyan) 15%, transparent) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@keyframes shake {
+  0%,100% { transform: translate(0,0) rotate(0); }
+  20% { transform: translate(-6px,4px) rotate(-1deg); }
+  40% { transform: translate(7px,-3px) rotate(1deg); }
+  60% { transform: translate(-4px,-5px) rotate(-0.5deg); }
+  80% { transform: translate(5px,3px) rotate(0.5deg); }
+}
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes pulse-neon {
+  0%,100% { text-shadow: 0 0 10px currentColor, 0 0 20px currentColor; }
+  50% { text-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor; }
+}
+@keyframes float-up {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-200px) scale(1.5); opacity: 0; }
+}
+@keyframes pop-in {
+  0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(10deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+@keyframes glitch {
+  0%,100% { transform: translate(0); filter: hue-rotate(0); }
+  20% { transform: translate(-3px,2px); filter: hue-rotate(90deg); }
+  40% { transform: translate(2px,-2px); filter: hue-rotate(180deg); }
+  60% { transform: translate(-2px,-2px); filter: hue-rotate(270deg); }
+  80% { transform: translate(3px,2px); filter: hue-rotate(360deg); }
+}
+.animate-shake { animation: shake 0.4s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 8s linear infinite; }
+.animate-pulse-neon { animation: pulse-neon 1.5s ease-in-out infinite; }
+.animate-float-up { animation: float-up 1.5s ease-out forwards; }
+.animate-pop-in { animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.animate-glitch { animation: glitch 0.3s steps(2) infinite; }
