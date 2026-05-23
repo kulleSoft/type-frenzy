@@ -225,18 +225,22 @@ function Index() {
         {screen === "skins" && (
           <Panel title="🎨 SKINS DE TECLADO" onBack={() => setScreen("menu")}>
             <div className="grid grid-cols-2 gap-3">
-              {SKINS.map(s => (
-                <button key={s.id} onClick={() => saveStats({ ...stats, skin: s.id })}
-                  className={`p-4 rounded-xl border-2 transition ${stats.skin === s.id ? `border-${s.primary} glow-cyan` : "border-neon-purple/30"}`}>
-                  <div className={`text-lg font-black text-${s.primary}`}>{s.name}</div>
-                  <div className="flex gap-1 mt-2 justify-center">
-                    <div className={`w-4 h-4 rounded-full bg-${s.primary}`} />
-                    <div className={`w-4 h-4 rounded-full bg-${s.accent}`} />
-                  </div>
-                  {stats.skin === s.id && <div className="text-xs text-neon-yellow mt-2">SELECIONADA</div>}
-                </button>
-              ))}
+              {SKINS.map(s => {
+                const selected = stats.skin === s.id;
+                return (
+                  <button key={s.id} onClick={() => saveStats({ ...stats, skin: s.id })}
+                    className={`p-4 rounded-xl border-2 transition ${selected ? "border-neon-pink glow-pink" : "border-neon-purple/30"}`}>
+                    <div className="text-lg font-black" style={{ color: `var(--${s.primary})` }}>{s.name}</div>
+                    <div className="flex gap-1 mt-2 justify-center">
+                      <div className="w-4 h-4 rounded-full" style={{ background: `var(--${s.primary})` }} />
+                      <div className="w-4 h-4 rounded-full" style={{ background: `var(--${s.accent})` }} />
+                    </div>
+                    {selected && <div className="text-xs text-neon-yellow mt-2">SELECIONADA</div>}
+                  </button>
+                );
+              })}
             </div>
+
           </Panel>
         )}
       </div>
