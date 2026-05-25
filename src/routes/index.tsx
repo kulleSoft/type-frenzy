@@ -151,9 +151,9 @@ function Index() {
         {screen === "over" && (
           <div className="text-center max-w-md w-full animate-pop-in">
             {lastRun.isRecord ? (
-              <div className="text-neon-yellow text-glow-pink text-2xl font-black mb-2 animate-pulse-neon">🏆 NOVO RECORDE!</div>
+              <div className="text-neon-yellow text-glow-pink text-2xl font-black mb-2 animate-pulse-neon">NOVO RECORDE!</div>
             ) : (
-              <div className="text-neon-pink text-glow-pink text-2xl font-black mb-2">💀 VOCE FOI DESTRUIDO</div>
+              <div className="text-neon-pink text-glow-pink text-2xl font-black mb-2">VOCE FOI DESTRUIDO</div>
             )}
             <div className="text-7xl font-black text-neon-cyan text-glow-cyan mb-1">{lastRun.score}</div>
             <div className="text-sm text-muted-foreground mb-1">pontos · nivel {lastRun.level}</div>
@@ -162,11 +162,11 @@ function Index() {
             <div className="space-y-3">
               <button onClick={() => startGame(mode)}
                 className="w-full py-4 rounded-2xl bg-neon-pink text-black text-xl font-black glow-pink hover:scale-105 transition">
-                🔄 TENTAR DE NOVO
+                TENTAR DE NOVO
               </button>
               <button onClick={share}
                 className="w-full py-3 rounded-xl bg-bg-deeper border-2 border-neon-cyan text-neon-cyan font-bold hover:glow-cyan transition">
-                📤 COMPARTILHAR
+                COMPARTILHAR
               </button>
               <button onClick={() => setScreen("menu")}
                 className="w-full py-2 text-sm text-muted-foreground hover:text-white transition">
@@ -177,7 +177,7 @@ function Index() {
         )}
 
         {screen === "ranking" && (
-          <Panel title="🏆 RANKING LOCAL" onBack={() => setScreen("menu")}>
+          <Panel title="RANKING LOCAL" onBack={() => setScreen("menu")}>
             {stats.ranking.length === 0 ? (
               <p className="text-center text-muted-foreground text-sm py-8">Nenhuma run ainda. Bora jogar!</p>
             ) : (
@@ -195,25 +195,25 @@ function Index() {
         )}
 
         {screen === "how" && (
-          <Panel title="❓ COMO JOGAR" onBack={() => setScreen("menu")}>
+          <Panel title="COMO JOGAR" onBack={() => setScreen("menu")}>
             <ul className="space-y-3 text-sm text-white">
-              <li>⌨️ <strong className="text-neon-cyan">Digite</strong> a palavra/frase mostrada e aperte espaco/enter.</li>
-              <li>🔥 <strong className="text-neon-pink">Combos</strong> aumentam seu multiplicador. Erros zeram tudo.</li>
-              <li>⏱️ Acertos <strong>somam tempo</strong>. Erros <strong>tiram tempo</strong>.</li>
-              <li>💀 A cada nivel o jogo fica mais <strong className="text-neon-purple">caotico</strong>: teclado embaralha, teclas somem, tela gira, popups falsos aparecem.</li>
-              <li>🏆 Faca seu melhor score e compartilhe!</li>
+              <li><strong className="text-neon-cyan">Digite</strong> a palavra/frase mostrada e aperte espaco/enter.</li>
+              <li><strong className="text-neon-pink">Combos</strong> aumentam seu multiplicador. Erros zeram tudo.</li>
+              <li>Acertos <strong>somam tempo</strong>. Erros <strong>tiram tempo</strong>.</li>
+              <li>A cada nivel o jogo fica mais <strong className="text-neon-purple">caotico</strong>: teclado embaralha, teclas somem, tela gira, popups falsos aparecem.</li>
+              <li>Faca seu melhor score e compartilhe!</li>
             </ul>
           </Panel>
         )}
 
         {screen === "achievements" && (
-          <Panel title="⭐ CONQUISTAS" onBack={() => setScreen("menu")}>
+          <Panel title="CONQUISTAS" onBack={() => setScreen("menu")}>
             <ul className="space-y-2">
               {ACHIEVEMENTS.map(a => {
                 const got = stats.unlocked.includes(a.id);
                 return (
                   <li key={a.id} className={`p-3 rounded-lg border ${got ? "bg-neon-pink/10 border-neon-pink" : "bg-bg-deeper border-neon-purple/30 opacity-60"}`}>
-                    <div className={`font-bold ${got ? "text-neon-pink" : "text-white"}`}>{got ? "✓" : "🔒"} {a.name}</div>
+                    <div className={`font-bold ${got ? "text-neon-pink" : "text-white"}`}>{got ? "OK" : "BLOQUEADO"} {a.name}</div>
                     <div className="text-xs text-muted-foreground">{a.desc}</div>
                   </li>
                 );
@@ -223,7 +223,7 @@ function Index() {
         )}
 
         {screen === "skins" && (
-          <Panel title="🎨 SKINS DE TECLADO" onBack={() => setScreen("menu")}>
+          <Panel title="SKINS DE TECLADO" onBack={() => setScreen("menu")}>
             <div className="grid grid-cols-2 gap-3">
               {SKINS.map(s => {
                 const selected = stats.skin === s.id;
