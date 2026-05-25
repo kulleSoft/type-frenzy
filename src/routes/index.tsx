@@ -110,7 +110,7 @@ function Index() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 py-8">
         {screen === "menu" && (
           <div className="text-center max-w-md w-full animate-pop-in">
-            <div className="mb-2 text-xs tracking-[0.3em] text-neon-cyan uppercase">jogo viral</div>
+            
             <h1 className="text-5xl sm:text-7xl font-black leading-none mb-1">
               <span className="text-white text-glow-cyan">DIGITE</span>
             </h1>
