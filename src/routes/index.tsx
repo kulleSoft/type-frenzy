@@ -117,29 +117,29 @@ function Index() {
             <h1 className="text-5xl sm:text-7xl font-black leading-none mb-2">
               <span className="text-neon-pink text-glow-pink animate-pulse-neon">MAIS RAPIDO</span>
             </h1>
-            <p className="text-sm text-muted-foreground italic mb-8">1% consegue passar do nivel 10 💀</p>
+            <p className="text-sm text-muted-foreground italic mb-8">1% consegue passar do nivel 10</p>
 
             <div className="space-y-3">
               <button onClick={() => startGame("normal")}
                 className="w-full py-4 rounded-2xl bg-neon-pink text-black text-2xl font-black glow-pink hover:scale-105 active:scale-95 transition-transform">
-                ▶ JOGAR
+                JOGAR
               </button>
               <div className="grid grid-cols-2 gap-3">
                 <button onClick={() => startGame("infinite")}
                   className="py-3 rounded-xl bg-bg-deeper border-2 border-neon-cyan text-neon-cyan font-bold hover:glow-cyan transition">
-                  ∞ Infinito
+                  INFINITO
                 </button>
                 <button onClick={() => startGame("insane")}
                   className="py-3 rounded-xl bg-bg-deeper border-2 border-neon-purple text-neon-purple font-bold hover:glow-purple transition">
-                  💀 Insano
+                  INSANO
                 </button>
               </div>
               <div className="grid grid-cols-3 gap-2 pt-2">
-                <button onClick={() => setScreen("ranking")} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">🏆 Ranking</button>
-                <button onClick={() => setScreen("how")} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">❓ Como Jogar</button>
-                <button onClick={() => setScreen("achievements")} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">⭐ Conquistas</button>
+                <button onClick={() => setScreen("ranking")} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Ranking</button>
+                <button onClick={() => setScreen("how")} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Como Jogar</button>
+                <button onClick={() => setScreen("achievements")} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Conquistas</button>
               </div>
-              <button onClick={() => setScreen("skins")} className="w-full py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">🎨 Skins de Teclado</button>
+              <button onClick={() => setScreen("skins")} className="w-full py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Skins de Teclado</button>
             </div>
 
             <div className="mt-8 text-xs text-muted-foreground">
