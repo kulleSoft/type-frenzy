@@ -266,7 +266,7 @@ export function Game({ mode, onGameOver, onExit }: Props) {
         </div>
 
         <div className="mt-5 w-full max-w-sm h-12 rounded-xl bg-bg-deeper border-2 border-neon-pink glow-pink flex items-center justify-center px-3 text-2xl font-black text-neon-pink tracking-wider overflow-hidden">
-          {typed || <span className="text-muted-foreground text-base">toque nas teclas ↓</span>}
+          {typed || <span className="text-muted-foreground text-base">toque nas teclas</span>}
         </div>
       </div>
 
@@ -279,8 +279,8 @@ export function Game({ mode, onGameOver, onExit }: Props) {
           <div key={ri} className="flex justify-center gap-1 mb-1.5">
             {ri === 2 && (
               <button onClick={tapBackspace}
-                className="flex-1 max-w-[52px] h-12 rounded-md bg-bg-deeper border border-neon-purple/60 text-neon-pink font-bold text-lg active:scale-90 active:bg-neon-pink/20 transition-transform">
-                ⌫
+                className="flex-1 max-w-[52px] h-12 rounded-md bg-bg-deeper border border-neon-purple/60 text-neon-pink font-bold text-xs active:scale-90 active:bg-neon-pink/20 transition-transform">
+                APAGAR
               </button>
             )}
             {row.map((origK) => {
@@ -335,8 +335,8 @@ export function Game({ mode, onGameOver, onExit }: Props) {
           style={{ top: `${15 + Math.random()*30}%`, left: `${5 + Math.random()*20}%` }}>
           <div className="bg-white text-black rounded-lg shadow-2xl p-3 max-w-[220px] border-2 border-gray-400">
             <div className="flex justify-between items-center mb-1">
-              <strong className="text-xs">⚠ Sistema</strong>
-              <span className="text-gray-500 text-lg leading-none">×</span>
+              <strong className="text-xs">SISTEMA</strong>
+              <span className="text-gray-500 text-lg leading-none">x</span>
             </div>
             <p className="text-[11px]">Você ganhou um iPhone! Clique aqui para resgatar!!!</p>
           </div>
