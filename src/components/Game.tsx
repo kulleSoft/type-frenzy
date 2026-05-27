@@ -226,7 +226,7 @@ export function Game({ mode, onGameOver, onExit }: Props) {
       <div className="absolute top-0 inset-x-0 px-3 pt-3 flex justify-between items-start gap-2 z-20"
         style={{ paddingTop: "calc(env(safe-area-inset-top) + 0.5rem)" }}>
         <div className="flex flex-col gap-1">
-          <button onClick={onExit} className="text-[11px] px-3 py-1.5 rounded-full bg-bg-deeper border border-neon-purple text-neon-purple active:scale-95 transition">← Sair</button>
+          <button onClick={() => { console.log("[btn] Sair"); onExit(); }} className="text-[11px] px-3 py-1.5 rounded-full bg-bg-deeper border border-neon-purple text-neon-purple active:scale-95 transition">← Sair</button>
           <div className="text-[10px] text-muted-foreground">NV <span className="text-neon-cyan font-black text-sm">{level}</span></div>
         </div>
         <div className="text-center">
@@ -278,7 +278,7 @@ export function Game({ mode, onGameOver, onExit }: Props) {
           ["z","x","c","v","b","n","m"]].map((row, ri) => (
           <div key={ri} className="flex justify-center gap-1 mb-1.5">
             {ri === 2 && (
-              <button onClick={tapBackspace}
+              <button onClick={() => { console.log("[btn] APAGAR"); tapBackspace(); }}
                 className="flex-1 max-w-[52px] h-12 rounded-md bg-bg-deeper border border-neon-purple/60 text-neon-pink font-bold text-xs active:scale-90 active:bg-neon-pink/20 transition-transform">
                 APAGAR
               </button>
@@ -290,7 +290,7 @@ export function Game({ mode, onGameOver, onExit }: Props) {
               return (
                 <button
                   key={origK}
-                  onPointerDown={(e) => { e.preventDefault(); tapKey(origK); }}
+                  onPointerDown={(e) => { e.preventDefault(); console.log("[btn] key", origK); tapKey(origK); }}
                   disabled={hidden}
                   className="flex-1 max-w-[40px] h-12 rounded-md flex items-center justify-center text-base font-bold border bg-bg-deeper border-neon-purple/40 text-white active:scale-90 active:bg-neon-pink active:text-black transition-transform"
                   style={{ opacity: hidden ? 0.05 : 1, touchAction: "manipulation" }}>
@@ -299,14 +299,14 @@ export function Game({ mode, onGameOver, onExit }: Props) {
               );
             })}
             {ri === 2 && (
-              <button onClick={submitWord}
+              <button onClick={() => { console.log("[btn] OK"); submitWord(); }}
                 className="flex-1 max-w-[60px] h-12 rounded-md bg-neon-pink text-black font-black text-xs active:scale-90 transition-transform glow-pink">
                 OK
               </button>
             )}
           </div>
         ))}
-        <button onClick={submitWord}
+        <button onClick={() => { console.log("[btn] ESPAÇO/ENVIAR"); submitWord(); }}
           className="w-full h-12 rounded-lg bg-bg-deeper border-2 border-neon-cyan text-neon-cyan font-black text-sm active:scale-95 transition-transform">
           ESPAÇO / ENVIAR
         </button>
