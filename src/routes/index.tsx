@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Zap, Infinity as InfinityIcon, Flame, Trophy, Gamepad2, Target, Keyboard } from "lucide-react";
 import { Game } from "@/components/Game";
 import { TermsModal } from "@/components/TermsModal";
 import { ACHIEVEMENTS, SKINS } from "@/lib/game-data";
