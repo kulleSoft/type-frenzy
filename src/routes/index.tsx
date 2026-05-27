@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Zap, Infinity as InfinityIcon, Flame, Trophy, Gamepad2, Target, Keyboard } from "lucide-react";
 import { Game } from "@/components/Game";
 import { TermsModal } from "@/components/TermsModal";
 import { ACHIEVEMENTS, SKINS } from "@/lib/game-data";
@@ -109,37 +110,70 @@ function Index() {
 
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 py-8">
         {screen === "menu" && (
-          <div className="text-center max-w-md w-full animate-pop-in">
-            
-            <h1 className="text-5xl sm:text-7xl font-black leading-none mb-1">
+          <div className="text-center max-w-lg w-full animate-pop-in">
+            <h1 className="text-6xl sm:text-8xl font-black leading-[0.95] mb-0 tracking-tight">
               <span className="text-white text-glow-cyan">DIGITE</span>
             </h1>
-            <h1 className="text-5xl sm:text-7xl font-black leading-none mb-2">
-              <span className="text-neon-pink text-glow-pink animate-pulse-neon">MAIS RAPIDO</span>
+            <h1 className="text-6xl sm:text-8xl font-black leading-[0.95] tracking-tight">
+              <span className="text-neon-pink text-glow-pink">MAIS</span>
             </h1>
-            <p className="text-sm text-muted-foreground italic mb-8">1% consegue passar do nivel 10</p>
+            <h1 className="text-6xl sm:text-8xl font-black leading-[0.95] mb-3 tracking-tight">
+              <span className="text-neon-pink text-glow-pink animate-pulse-neon">RAPIDO</span>
+            </h1>
+            <p className="text-xs sm:text-sm text-muted-foreground/80 uppercase tracking-[0.2em] mb-6">— 1% consegue passar do nivel 10 —</p>
 
             <div className="space-y-3">
               <button onClick={() => { console.log("[btn] JOGAR normal"); startGame("normal"); }}
-                className="w-full py-4 rounded-2xl bg-neon-pink text-black text-2xl font-black glow-pink hover:scale-105 active:scale-95 transition-transform">
+                className="w-full py-5 rounded-2xl bg-gradient-to-b from-neon-pink to-pink-600 text-white text-3xl font-black glow-pink hover:scale-[1.02] active:scale-95 transition-transform flex items-center justify-center gap-3 border-2 border-pink-300/40">
+                <Zap className="w-8 h-8 fill-white" strokeWidth={2.5} />
                 JOGAR
               </button>
+
               <div className="grid grid-cols-2 gap-3">
                 <button onClick={() => { console.log("[btn] INFINITO"); startGame("infinite"); }}
-                  className="py-3 rounded-xl bg-bg-deeper border-2 border-neon-cyan text-neon-cyan font-bold hover:glow-cyan transition">
-                  INFINITO
+                  className="py-4 px-3 rounded-2xl bg-bg-deeper/60 border-2 border-neon-cyan/60 hover:border-neon-cyan hover:glow-cyan transition flex items-center gap-2 text-left">
+                  <InfinityIcon className="w-7 h-7 text-neon-cyan shrink-0" strokeWidth={2.5} />
+                  <div className="min-w-0">
+                    <div className="text-neon-cyan font-black text-base leading-tight">INFINITO</div>
+                    <div className="text-[10px] text-muted-foreground leading-tight">Quanto tempo voce aguenta?</div>
+                  </div>
                 </button>
                 <button onClick={() => { console.log("[btn] INSANO"); startGame("insane"); }}
-                  className="py-3 rounded-xl bg-bg-deeper border-2 border-neon-purple text-neon-purple font-bold hover:glow-purple transition">
-                  INSANO
+                  className="py-4 px-3 rounded-2xl bg-bg-deeper/60 border-2 border-neon-purple/60 hover:border-neon-purple hover:glow-purple transition flex items-center gap-2 text-left">
+                  <Flame className="w-7 h-7 text-neon-purple shrink-0" strokeWidth={2.5} />
+                  <div className="min-w-0">
+                    <div className="text-neon-purple font-black text-base leading-tight">INSANO</div>
+                    <div className="text-[10px] text-muted-foreground leading-tight">So para os verdadeiros</div>
+                  </div>
                 </button>
               </div>
-              <div className="grid grid-cols-3 gap-2 pt-2">
-                <button onClick={() => { console.log("[btn] Ranking"); setScreen("ranking"); }} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Ranking</button>
-                <button onClick={() => { console.log("[btn] Como Jogar"); setScreen("how"); }} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Como Jogar</button>
-                <button onClick={() => { console.log("[btn] Conquistas"); setScreen("achievements"); }} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Conquistas</button>
+
+              <div className="grid grid-cols-3 gap-2">
+                <button onClick={() => { console.log("[btn] Ranking"); setScreen("ranking"); }} className="py-3 px-2 rounded-xl bg-bg-deeper/60 border border-neon-pink/40 hover:border-neon-pink transition flex flex-col items-center gap-1">
+                  <Trophy className="w-5 h-5 text-neon-pink" strokeWidth={2.5} />
+                  <div className="text-[11px] font-black text-white leading-tight">RANKING</div>
+                  <div className="text-[9px] text-muted-foreground leading-tight">Veja os melhores</div>
+                </button>
+                <button onClick={() => { console.log("[btn] Como Jogar"); setScreen("how"); }} className="py-3 px-2 rounded-xl bg-bg-deeper/60 border border-neon-purple/40 hover:border-neon-purple transition flex flex-col items-center gap-1">
+                  <Gamepad2 className="w-5 h-5 text-neon-purple" strokeWidth={2.5} />
+                  <div className="text-[11px] font-black text-white leading-tight">COMO JOGAR</div>
+                  <div className="text-[9px] text-muted-foreground leading-tight">Aprenda as regras</div>
+                </button>
+                <button onClick={() => { console.log("[btn] Conquistas"); setScreen("achievements"); }} className="py-3 px-2 rounded-xl bg-bg-deeper/60 border border-neon-cyan/40 hover:border-neon-cyan transition flex flex-col items-center gap-1">
+                  <Target className="w-5 h-5 text-neon-cyan" strokeWidth={2.5} />
+                  <div className="text-[11px] font-black text-white leading-tight">CONQUISTAS</div>
+                  <div className="text-[9px] text-muted-foreground leading-tight">Desbloqueie tudo</div>
+                </button>
               </div>
-              <button onClick={() => { console.log("[btn] Skins de Teclado"); setScreen("skins"); }} className="w-full py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Skins de Teclado</button>
+
+              <button onClick={() => { console.log("[btn] Skins de Teclado"); setScreen("skins"); }}
+                className="w-full py-3 px-4 rounded-xl bg-bg-deeper/60 border border-neon-cyan/40 hover:border-neon-cyan transition flex items-center justify-center gap-3">
+                <Keyboard className="w-5 h-5 text-neon-cyan" strokeWidth={2.5} />
+                <div className="text-left">
+                  <div className="text-sm font-black text-white leading-tight">SKINS DE TECLADO</div>
+                  <div className="text-[10px] text-muted-foreground leading-tight">Personalize sua experiencia</div>
+                </div>
+              </button>
             </div>
 
             <div className="mt-8 text-xs text-muted-foreground">
