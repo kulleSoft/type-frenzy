@@ -120,26 +120,26 @@ function Index() {
             <p className="text-sm text-muted-foreground italic mb-8">1% consegue passar do nivel 10</p>
 
             <div className="space-y-3">
-              <button onClick={() => startGame("normal")}
+              <button onClick={() => { console.log("[btn] JOGAR normal"); startGame("normal"); }}
                 className="w-full py-4 rounded-2xl bg-neon-pink text-black text-2xl font-black glow-pink hover:scale-105 active:scale-95 transition-transform">
                 JOGAR
               </button>
               <div className="grid grid-cols-2 gap-3">
-                <button onClick={() => startGame("infinite")}
+                <button onClick={() => { console.log("[btn] INFINITO"); startGame("infinite"); }}
                   className="py-3 rounded-xl bg-bg-deeper border-2 border-neon-cyan text-neon-cyan font-bold hover:glow-cyan transition">
                   INFINITO
                 </button>
-                <button onClick={() => startGame("insane")}
+                <button onClick={() => { console.log("[btn] INSANO"); startGame("insane"); }}
                   className="py-3 rounded-xl bg-bg-deeper border-2 border-neon-purple text-neon-purple font-bold hover:glow-purple transition">
                   INSANO
                 </button>
               </div>
               <div className="grid grid-cols-3 gap-2 pt-2">
-                <button onClick={() => setScreen("ranking")} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Ranking</button>
-                <button onClick={() => setScreen("how")} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Como Jogar</button>
-                <button onClick={() => setScreen("achievements")} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Conquistas</button>
+                <button onClick={() => { console.log("[btn] Ranking"); setScreen("ranking"); }} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Ranking</button>
+                <button onClick={() => { console.log("[btn] Como Jogar"); setScreen("how"); }} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Como Jogar</button>
+                <button onClick={() => { console.log("[btn] Conquistas"); setScreen("achievements"); }} className="py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Conquistas</button>
               </div>
-              <button onClick={() => setScreen("skins")} className="w-full py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Skins de Teclado</button>
+              <button onClick={() => { console.log("[btn] Skins de Teclado"); setScreen("skins"); }} className="w-full py-2 rounded-lg bg-bg-deeper border border-neon-purple/40 text-xs text-white hover:border-neon-pink transition">Skins de Teclado</button>
             </div>
 
             <div className="mt-8 text-xs text-muted-foreground">
@@ -160,15 +160,15 @@ function Index() {
             <div className="text-xs text-neon-purple mb-8">recorde: {stats.bestScore}</div>
 
             <div className="space-y-3">
-              <button onClick={() => startGame(mode)}
+              <button onClick={() => { console.log("[btn] TENTAR DE NOVO", mode); startGame(mode); }}
                 className="w-full py-4 rounded-2xl bg-neon-pink text-black text-xl font-black glow-pink hover:scale-105 transition">
                 TENTAR DE NOVO
               </button>
-              <button onClick={share}
+              <button onClick={() => { console.log("[btn] COMPARTILHAR"); share(); }}
                 className="w-full py-3 rounded-xl bg-bg-deeper border-2 border-neon-cyan text-neon-cyan font-bold hover:glow-cyan transition">
                 COMPARTILHAR
               </button>
-              <button onClick={() => setScreen("menu")}
+              <button onClick={() => { console.log("[btn] voltar ao menu (over)"); setScreen("menu"); }}
                 className="w-full py-2 text-sm text-muted-foreground hover:text-white transition">
                 ← voltar ao menu
               </button>
@@ -228,7 +228,7 @@ function Index() {
               {SKINS.map(s => {
                 const selected = stats.skin === s.id;
                 return (
-                  <button key={s.id} onClick={() => saveStats({ ...stats, skin: s.id })}
+                  <button key={s.id} onClick={() => { console.log("[btn] skin", s.id); saveStats({ ...stats, skin: s.id }); }}
                     className={`p-4 rounded-xl border-2 transition ${selected ? "border-neon-pink glow-pink" : "border-neon-purple/30"}`}>
                     <div className="text-lg font-black" style={{ color: `var(--${s.primary})` }}>{s.name}</div>
                     <div className="flex gap-1 mt-2 justify-center">
@@ -252,7 +252,7 @@ function Panel({ title, children, onBack }: { title: string; children: React.Rea
   return (
     <div className="max-w-md w-full animate-pop-in">
       <div className="flex items-center justify-between mb-4">
-        <button onClick={onBack} className="text-xs px-3 py-1 rounded-full bg-bg-deeper border border-neon-purple text-neon-purple hover:scale-105 transition">← Voltar</button>
+        <button onClick={() => { console.log("[btn] Voltar"); onBack(); }} className="text-xs px-3 py-1 rounded-full bg-bg-deeper border border-neon-purple text-neon-purple hover:scale-105 transition">← Voltar</button>
         <h2 className="text-xl font-black text-neon-cyan text-glow-cyan">{title}</h2>
         <div className="w-16" />
       </div>
