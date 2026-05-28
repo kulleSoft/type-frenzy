@@ -4,19 +4,8 @@ import { Game } from "@/components/Game";
 import { TermsModal } from "@/components/TermsModal";
 import { ACHIEVEMENTS, SKINS } from "@/lib/game-data";
 import { sound } from "@/lib/sound";
-import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/")({
-  component: Index,
-  head: () => ({
-    meta: [
-      { title: "Digite Mais Rapido — Jogo viral de digitacao caotica" },
-      { name: "description", content: "Sobreviva ao teclado mais maluco da internet. Teclas trocam, tela gira, tudo bugado. 1% passa do nivel 10." },
-      { property: "og:title", content: "Digite Mais Rapido" },
-      { property: "og:description", content: "Jogo viral de digitacao caotica. Voce nao vai passar do nivel 10." },
-    ],
-  }),
-});
+export default Index;
 
 type Screen = "menu" | "game" | "over" | "ranking" | "how" | "achievements" | "skins";
 type Mode = "normal" | "infinite" | "insane";
