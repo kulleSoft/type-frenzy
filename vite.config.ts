@@ -3,16 +3,9 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { viteSingleFile } from "vite-plugin-singlefile";
-import { componentTagger } from "@lovable.dev/component-tagger";
 
-export default defineConfig(({ mode }) => ({
-  plugins: [
-    react(),
-    tailwindcss(),
-    tsconfigPaths(),
-    mode === "development" && componentTagger(),
-    viteSingleFile(),
-  ].filter(Boolean),
+export default defineConfig({
+  plugins: [react(), tailwindcss(), tsconfigPaths(), viteSingleFile()],
   server: {
     host: "::",
     port: 8080,
@@ -29,4 +22,4 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-}));
+});
